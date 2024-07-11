@@ -1,5 +1,7 @@
 # SimplifiedFmapsLearning
 
+This is the official repository of the paper [Memory Scalable and Simplified Functional Map Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Magnet_Memory-Scalable_and_Simplified_Functional_Map_Learning_CVPR_2024_paper.html), published at CVPR 2024
+
 This is a v0.1 of the codebase which should be able to reproduce the results exactly. There is no explicit dependency on [ScalableDenseMaps](https://github.com/RobinMagnet/ScalableDenseMaps) in this version, an early versio of the package is provided in the DiffZo folder.
 
 A **simpler** and **cleaner** version of the codebase will be released soon, relying cleanly on [ScalableDenseMaps](https://github.com/RobinMagnet/ScalableDenseMaps).
