@@ -1,0 +1,89 @@
+
+
+gpu: 0
+group: faust_scape_shrec19
+log_dir: exp/log/faust_shrecval
+project: DiffZO
+train_ckpt: ''
+test_ckpt: ''
+seed: 0
+log_step: 20
+
+supervised: false
+
+
+# DiffusionNet model
+feat_model:
+  block_width: 256
+  dropout: false
+  dropout_prob: 0.5
+  in_channels: 128
+  in_type: wks
+  num_blocks: 4
+  num_eigenbasis: 128
+  out_channels: 32
+
+  smooth_features: false
+  k_smoothing: 256
+
+
+# DiffZo
+dzo_layer:
+  k_init: 20
+  nit: 10
+  step: 10
+  blur: 1e-2
+  init_blur: ${dzo_layer.blur}
+  normalize: True
+  nn_only: False
+  precise: False
+  n_inner: 1
+
+data:
+  root: /mnt/disk2/robin/data/AttentiveFMAPS_data/ # /media/disk1/robin/data/ShapeMatchingData/
+  feature_type: null
+  laplacian_type: mesh
+  num_workers: 10
+  num_corrs: null
+  train:
+    batch_size: 1
+    epochs: 10
+    noise_args: null
+    noise_type: null
+    rotation_args: null
+    rotation_type: null
+    scaling: false
+    scaling_args: null
+    types: [faust]
+    scale: True
+
+  val:
+    fraction: 1
+    use_geod: True
+    geod_in_loader: True
+    batch_size: 1
+    epochs: 1
+    types: [shrec19]
+
+  test:
+    batch_size: 1
+    epochs: 1
+    use_geod: True
+    geod_in_loader: True
+    types: [faust, scape, shrec19]
+
+loss:
+  w_init: 1.0
+  w_final: 1.0
+  w_consist: 1
+  w_lap_bij_resolvant: 0
+
+
+
+optim:
+  scheduler_type: StepLR
+  accum_step: 1
+  decay_gamma: 0.1
+  decay_step: 5
+  grad_clip: 1.0
+  lr: 0.0001

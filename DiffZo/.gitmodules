@@ -1,0 +1,6 @@
+[submodule "geomloss_mod"]
+	path = geomloss_mod
+	url = git@github.com:RobinMagnet/geomloss_mod.git
+[submodule "ProjectionUtils"]
+	path = ProjectionUtils
+	url = git@github.com:RobinMagnet/ProjectionUtils.git
